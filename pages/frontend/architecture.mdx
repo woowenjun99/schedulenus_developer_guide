@@ -1,0 +1,86 @@
+import { FileTree } from 'nextra/components'
+import Image from 'next/image'
+
+# Application Architecture
+
+When we are designing our software, it is crucial that we have a good
+application architecture in place so that our project can scale easily. A good 
+application architecture has the following characteristics:
+
+1. Separation of Concerns (SOC)
+
+Imagine that we have all the UI Logic, Business Logic and Controller Logic in a 
+single file. If we would like to make a single change, it might be difficult to 
+make a simple change because the code are <strong>TIGHTLY COUPLED</strong>. 
+Making a simple change might cause other parts of the code to fail.
+
+However, if we can separate out the 3 different logic, we can identify issues 
+and make changes easily. For example, if the bug has to do with the Business 
+Logic, we can go into the code regarding the Business Logic to debug it.
+
+2. Single Responsibility Principle
+
+The <strong>SINGLE RESPONSIBILITY PRINCIPLE</strong> states that one class 
+should have one and only one responsibility. This is so that when we make any 
+changes to the class, it will not affect other logic.
+
+## Micro-Frontend
+Now that we know the importance of having a good application architecture, let 
+us look at the Micro-Frontend architecture that we will be adopting. A 
+micro-frontend is similar to the microservices architecture, where we separate 
+out our application into various services. Each service will handle a single 
+aspect of the mobile application so that we can scale and fix issues quickly
+and easily.
+
+## Data Domain Presentation Architecture
+We will be adopting <strong>DOMAIN DRIVEN DEVELOPMENT</strong> where we model
+real life objects as model or domain. The main directory structure with an 
+example service is as follows:
+
+<FileTree>
+    <FileTree.Folder name="services" defaultOpen>
+        <FileTree.Folder name="authentication" defaultOpen>
+            <FileTree.Folder name="data" defaultOpen>
+                <FileTree.File name="auth_repository.dart" />
+            </FileTree.Folder>
+            <FileTree.Folder name="domain" defaultOpen>
+                <FileTree.File name="auth_user.dart" />
+            </FileTree.Folder>
+            <FileTree.Folder name="presentation" defaultOpen>
+                <FileTree.File name="login_screen.dart" />
+                <FileTree.File name="login_screen_controller.dart" />
+            </FileTree.Folder>
+        </FileTree.Folder>
+    </FileTree.Folder>
+</FileTree>
+
+<Image
+    src="/app_architecture.png" 
+    width={500} 
+    height={500} 
+/>
+
+Each service will have its own domain-data-presentation directory structure. 
+
+### Data Layer
+The data layer is responsible for interacting with the server and external 
+APIs and house most of the business logic.
+
+### Domain Layer
+The domain layer contains the various domains that are involved in the service. 
+
+### Presentation Layer
+The presentation logic contains the Widgets and Controllers which are state 
+notifiers providers. 
+
+## Conclusion
+In this article, we learnt about the high level architecture of our 
+application. We will learn about the various services and the implementation 
+of the architecture through the use of Riverpod provider.
+
+Unlike CodeWithAndrea, we did not implement an Application layer because we are
+striving for a micro-frontend architecture. This means that we try to separate 
+out the different services as much as possible.
+
+## References
+1. https://codewithandrea.com/articles/flutter-app-architecture-riverpod-introduction/
