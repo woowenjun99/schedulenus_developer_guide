@@ -1,11 +1,8 @@
 {
-  "index": "Introduction",
-  "another": "Another Page",
-  "advanced": "Advanced (A Folder)",
-  "about": {
-    "title": "About",
-    "type": "page"
-  },
+  "index": "Home",
+  "frontend": "Frontend",
+  "backend": "Backend",
+  "miscellaneous": "Miscellaneous",
   "contact": {
     "title": "Contact ↗",
     "type": "page",

@@ -1,11 +1,30 @@
-# Introduction
- 
-Welcome to Nextra! This is a basic docs template. You can use it as a starting point for your own project :)
+import { FileTree, Cards, Card } from 'nextra/components'
 
-## What is Nextra?
+# ScheduleNUS
 
-A **simple**, **powerful** and **flexible** site generation framework with everything you love from Next.js.
+## Introduction
+ScheduleNUS is a mobile app built using Flutter and Firebase Cloud Functions. 
+It's main goal is to become a companion application that can help students with
+their academic plans.
 
-## Documentation
+## Directory Structure
+This documentation serves as a guide for developers who wish to work on the 
+project. It documents everything regarding the application, from the Frontend
+to the Backend. The general directory structure is as follows:
 
-The documentation is available at [https://nextra.site](https://nextra.site).
+<FileTree>
+    <FileTree.File name="index" />
+    <FileTree.Folder name="frontend" defaultOpen>
+    </FileTree.Folder>
+    <FileTree.Folder name="backend" defaultOpen>
+    </FileTree.Folder>
+    <FileTree.Folder name="miscellaneous" defaultOpen>
+    </FileTree.Folder>
+</FileTree>
+
+## Get Started
+<Cards>
+    <Card title="Frontend" href="frontend" />
+    <Card title="Backend" href="backend" />
+    <Card title="Miscellaneous" href="miscellaneous" />
+</Cards>
