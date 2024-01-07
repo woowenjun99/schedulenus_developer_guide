@@ -1,0 +1,70 @@
+# User Module
+
+## Introduction
+
+The user module services serves as a bridging module between the modules that
+the user has taken and the user himself. Even though the modules may change 
+over time, such as the professor teaching, the module code or description, we 
+do not need to be updating these as it is meant to capture a snapshot at what 
+is happening at that point in time.
+
+For instance, supposed that the module CS2040C is being replaced with CS2040X, 
+we do not need to rename the module name because as far as the student and 
+others are concerned, the student took CS2040C and not CS2040X.
+
+## Relevant APIs
+### saveModule
+
+```typescript
+type saveModuleServiceRequest = ReadOnly<{
+    moduleCode: string,
+    semesterTaken: number
+}>
+
+```
+
+#### Context
+Supposed that the user wants to be able to indicate that he has taken the
+module, he can do so via this single API. After doing so, he would be able to 
+register his grades or give his or her feedback about the module itself.
+
+#### Input Parameters
+
+{
+    <table>
+        <thead>
+            <tr>
+                <th>Attributes</th>
+                <th>Data Type</th>
+                <th>Required</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>moduleCode</td>
+                <td>String</td>
+                <td>True</td>
+                <td>The NUS module code (e.g. CS1010, CS2040C)</td>
+            </tr>
+            <tr>
+                <td>semesterTaken</td>
+                <td>int</td>
+                <td>True</td>
+                <td>The semester that the student took the module</td>
+            </tr>
+        </tbody>
+    </table>
+}
+
+#### Example Responses
+
+The API will throw under the following conditions.
+
+1. The user has already registered for the module. This might happen because 
+the user is using the application on 2 different devices, which led to 
+inconsistency. 
+
+2. When the schema is incorrect
+
+Upon success, the user will have added the module into his list.

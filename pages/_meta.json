@@ -2,11 +2,6 @@
   "index": "Home",
   "frontend": "Frontend",
   "backend": "Backend",
-  "miscellaneous": "Miscellaneous",
-  "contact": {
-    "title": "Contact ↗",
-    "type": "page",
-    "href": "https://twitter.com/shuding_",
-    "newWindow": true
-  }
+  "services": "Services",
+  "miscellaneous": "Miscellaneous"
 }
